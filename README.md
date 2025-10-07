@@ -2,8 +2,8 @@
 
 ## Student Details
 
-- **Full Name:** `<Enter name>`
-- **CCID:** `<Enter ccid>`
+- **Full Name:** `Jeanard Sinfuego`
+- **CCID:** `sinfuego`
 
 ## References and Resources
 
