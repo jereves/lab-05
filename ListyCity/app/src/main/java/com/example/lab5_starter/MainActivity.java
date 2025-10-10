@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
         cityArrayAdapter = new CityArrayAdapter(this, cityArrayList);
         cityListView.setAdapter(cityArrayAdapter);
 
-        addDummyData();
+//        addDummyData();
 
         // set listeners
         addCityButton.setOnClickListener(view -> {
@@ -103,13 +103,15 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
 
     @Override
     public void updateCity(City city, String title, String year) {
+        // query in database
+        DocumentReference docRef = citiesRef.document(city.getName());
+
         city.setName(title);
         city.setProvince(year);
         cityArrayAdapter.notifyDataSetChanged();
 
         // Updating the database using delete + addition
 
-        DocumentReference docRef = citiesRef.document(city.getName());
         docRef.set(city);
     }
 
@@ -130,13 +132,13 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
         DocumentReference docRef = citiesRef.document(city.getName());
         docRef.delete();
     }
-    public void addDummyData(){
-        City m1 = new City("Edmonton", "AB");
-        City m2 = new City("Vancouver", "BC");
-        cityArrayList.add(m1);
-        cityArrayList.add(m2);
-        cityArrayAdapter.notifyDataSetChanged();
-    }
+//    public void addDummyData(){
+//        City m1 = new City("Edmonton", "AB");
+//        City m2 = new City("Vancouver", "BC");
+//        cityArrayList.add(m1);
+//        cityArrayList.add(m2);
+//        cityArrayAdapter.notifyDataSetChanged();
+//    }
     private void setDeleteIndex(Integer i ) {
         this.deleteIndex = i;
     }

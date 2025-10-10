@@ -56,7 +56,10 @@ public class CityDialogFragment extends DialogFragment {
 
         String tag = getTag();
         Bundle bundle = getArguments();
-        City city = (City) bundle.getSerializable("City");
+        City city = null;
+        if (bundle !=null) {
+            city = (City) bundle.getSerializable("City");
+        }
 
         if (Objects.equals(tag, "City Details") && bundle != null){
             view = getLayoutInflater().inflate(R.layout.fragment_city_details, null);
@@ -64,7 +67,7 @@ public class CityDialogFragment extends DialogFragment {
             editMovieYear = view.findViewById(R.id.edit_province);
 
 
-            assert city != null;
+//            assert city != null;
             editMovieName.setText(city.getName());
             editMovieYear.setText(city.getProvince());
         } else if

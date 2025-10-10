@@ -19,14 +19,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/city_name_del"
+            android:id="@+id/province_name_del"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/province_name_del"
+            android:id="@+id/city_name_del"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
