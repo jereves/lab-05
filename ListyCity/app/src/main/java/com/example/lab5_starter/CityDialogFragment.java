@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class CityDialogFragment extends DialogFragment {
     interface CityDialogListener {
-        void updateCity(City city, String title, String year);
+        void updateCity(City oldCity, City newCity);
         void addCity(City city);
         void deleteCity(City city);
     }
@@ -86,7 +86,6 @@ public class CityDialogFragment extends DialogFragment {
             editMovieName = view.findViewById(R.id.edit_city_name);
             editMovieYear = view.findViewById(R.id.edit_province);
 
-
             city = null;}
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -100,7 +99,7 @@ public class CityDialogFragment extends DialogFragment {
                         String title = editMovieName.getText().toString();
                         String year = editMovieYear.getText().toString();
 
-                        listener.updateCity(finalCity, title, year);
+                        listener.updateCity(finalCity, new City( title, year));
                     } else if (Objects.equals(tag, "Delete City")) {
                         listener.deleteCity(finalCity);
                     } else {

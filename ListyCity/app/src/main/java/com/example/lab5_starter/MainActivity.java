@@ -102,17 +102,9 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
     }
 
     @Override
-    public void updateCity(City city, String title, String year) {
-        // query in database
-        DocumentReference docRef = citiesRef.document(city.getName());
-
-        city.setName(title);
-        city.setProvince(year);
-        cityArrayAdapter.notifyDataSetChanged();
-
-        // Updating the database using delete + addition
-
-        docRef.set(city);
+    public void updateCity(City OldCity, City NewCity) {
+        deleteCity(OldCity);
+        addCity(NewCity);
     }
 
     @Override
